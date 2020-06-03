@@ -1,0 +1,15 @@
+<h1>Sign up Below</h1>
+
+
+<%= form_for(@user) do |u|%>
+    <%=  u.label :name%>
+    <%= u.text_field :name%>
+     
+    <%= u.label :email%>
+    <%= u.email_field :email%>
+
+    <%= u.label :password%>
+    <%= u.password_field :password%>
+
+    <%= u.submit "Sign In"%>
+<%end%>
