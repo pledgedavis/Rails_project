@@ -1,2 +1,2 @@
-class Place < ApplicationRecord 
+class Place < ApplicationRecord
 end
