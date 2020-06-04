@@ -1,0 +1,15 @@
+<h1>Log In </h1>
+
+
+<%= form_for @user, url: '/login' do |u|%>
+    <%=  u.label :username%>
+    <%= u.text_field :name%>
+     
+    <%= u.label :email%>
+    <%= u.email_field :email%>
+
+    <%= u.label :password%>
+    <%= u.password_field :password%>
+
+    <%= u.submit "Sign In"%>
+<%end%>
