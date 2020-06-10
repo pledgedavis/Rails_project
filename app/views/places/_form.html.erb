@@ -1,0 +1,26 @@
+<%= render partial: 'layouts/errors', locals: {object: @place}  %>
+
+
+
+<%= form_for(@place) do |f|%> 
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :description_of_place %>
+      <%= f.text_field :description%>
+      <%= f.label :overall_rating %>
+      <%= f.number_field :overall_rating,min:0, max:5%>
+    </div>
+    
+
+    <div>
+      <%= f.fields_for :category do |c| %>
+        <%= c.label :category_name %>
+        <%= c.select(:name, [ "Restaurant", "Fast food", "Amusement Park", "Store" ]) %>
+      <% end %> 
+    </div> 
+    <br>
+    
+
+    <%= f.submit  %>  
+  <% end %>

@@ -1,0 +1,13 @@
+
+<%= form_for @review do |u|%>
+    <%=u.label :description%>
+    <%= u.text_field :description%>
+     <br> <br>
+    <%=u.label :rating%>
+    <%=u.number_field :rating,min:0, max:5 %><br><br>
+    
+    <%=u.hidden_field :place_id%>
+
+    <%=u.submit "Submit Review"%>
+<%end%>
+<%= flash[:error] %>

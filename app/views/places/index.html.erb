@@ -1,0 +1,11 @@
+
+
+<h1>All the Places</h1>
+
+<% @place.each do |r| %>
+
+  <h2>Your reviewed places name:<%= link_to r.name, place_path(r.id)%> - Category: <%= r.category.name %> - Description: <%= r.description %> - Rating: <%= r.overall_rating %> </h2>
+  <%= link_to "Write a review", new_place_review_path(r.id) %> 
+ 
+  <% end %>
+  

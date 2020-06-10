@@ -1,0 +1,11 @@
+<h1><%= @place.name%>  </h1>
+
+
+<h2> <%= @place.description %> </h2>
+
+
+<%= link_to "Edit #{@place.name}", edit_place_path(@place) if @place.user == current_user%>
+
+<br></br>
+
+<%= link_to "See all Reviews", place_reviews_path(@place) %>

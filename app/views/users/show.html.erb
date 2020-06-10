@@ -1,8 +1,9 @@
-<h1>Welcome <%=@user.review%>! </h1>
 
+<h2>Welcome to <%= @user.name%>'s homepage! </h2>
 
-<%= form_for @user do |u|%>
-    <%=  %>
-    <%= %>
-   
-<%end%>
+<h3>Here are the places reviewed by <%=@user.name%>:</h3>
+<ul>
+  <% @user.reviewed_places.each do |r|%>
+  <li> <%= link_to r.name, place_path(r)%> </li>
+  <% end %>
+</ul>

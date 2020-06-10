@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/errors', locals: {object: @user}  %>
+
 <h1>Log In </h1>
 
 
@@ -11,5 +13,7 @@
     <%= u.label :password%>
     <%= u.password_field :password%>
 
-    <%= u.submit "Sign In"%>
+    <%= u.submit "Log In"%>
 <%end%>
+
+<%= flash[:error] %>

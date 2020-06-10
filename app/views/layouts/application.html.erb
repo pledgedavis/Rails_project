@@ -5,12 +5,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    </head>
 
   <body>
-    <%= link_to 'Log Out', logout_path, method: :delete %> 
+    <% if logged_in? %>
+    <nav class="navbar">
+      <%= link_to 'Log Out', logout_path, method: :delete %>
+      <%= link_to 'All Reviews', reviews_path%>
+      <%= link_to "Add a Place", new_place_path %> 
+      <% link_to 'New Review', new_review_path %>
+      <%= link_to 'All Places',  places_path %>
+      <%= link_to "Home", user_path(:user_id) %> 
+
+    </nav>
+    <% end %>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
+
+
+
+

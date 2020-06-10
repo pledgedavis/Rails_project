@@ -10,22 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_153801) do
+ActiveRecord::Schema.define(version: 2020_06_06_123907) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.string "location"
     t.string "description"
     t.string "overall_rating"
-    t.string "category"
+    t.integer "category_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string "description"
+    t.string "picture"
+    t.integer "count"
+    t.integer "rating"
     t.integer "user_id"
     t.integer "place_id"
-    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_153801) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

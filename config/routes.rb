@@ -1,13 +1,27 @@
 Rails.application.routes.draw do
-  root 'sessions#home'
+  # root 'sessions#home'
+  # get '/users/user_id' => 'users#show'
+  resources :categories 
+  get '/' => 'sessions#home' 
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   resources :reviews
   resources :places
   resources :users
   # resources :sessions
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #omniauth callback
+  get '/auth/:provider/callback' => 'sessions#fbcreate'
+  
+  # post '/signup' => 'users#create' 
+  
+  # For details on the DSL available within this file, see http://guides.rubyonrails.resources :reviews
+  resources :places do
+    resources :reviews, only: [:new, :index, :create]
+  end
+  resources :users, only: [:show, :create]
 end
+
+
