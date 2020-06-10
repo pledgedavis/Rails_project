@@ -45,6 +45,11 @@ class ReviewsController < ApplicationController
   end
  end
 
+ def reviewbycat
+  # binding.pry
+  @reviews = Review.all
+ end
+
   private 
 # def set_review
 #   @review = Review.find_by(id: params[:id])

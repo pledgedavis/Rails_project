@@ -1,0 +1,13 @@
+
+ 
+
+
+
+<% @reviews.each do |r|%>
+   <h1>Reviews for the <%= r.place.category.name%> category</h1>
+    <br><br>
+    <%= r.place.name%> - <%= r.place.category.name%>
+    <br><br><br>
+    User <%= r.user.name%> - <%= r.description%> 
+    <br>
+    <%end%>

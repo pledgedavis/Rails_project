@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/logout' => 'sessions#destroy'
+
+  get '/search' => 'reviews#reviewbycat'
   resources :reviews
   resources :places
   resources :users

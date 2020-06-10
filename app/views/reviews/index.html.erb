@@ -2,9 +2,9 @@
 <br><br>
   
 <br>
-<%= form_tag("/reviews", method: "get") do %>
+<%= form_tag("/search", method: "get") do %>
   <%= label_tag(:Review, "Search for review by category here:") %>    
-  <%= select_tag :Review,options_for_select([ @reviews.each {|x| x.place.category.name}])  %>
+  <%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name"), include_blank: true %>
    <%= submit_tag("Search") %>
 <% end %>
 <br><br>
