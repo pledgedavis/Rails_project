@@ -1,25 +1,23 @@
   <h1>All the Reviews </h1>
 <br><br>
-  <% if @place %>
-  <h1>Reviews for <%= @place.name %> - <%= @place.category.name %></h1>
-<% else %>
-<% end %>
+  
 <br>
 <%= form_tag("/reviews", method: "get") do %>
   <%= label_tag(:Review, "Search for review by category here:") %>    
-  
-  <%= select_tag :name,options_for_select([ "Restaurant", "Fast food", "Amusement Park", "Store" ])  %>
-  
+  <%= select_tag :Review,options_for_select([ @reviews.each {|x| x.place.category.name}])  %>
    <%= submit_tag("Search") %>
 <% end %>
 <br><br>
-
+<% if !@reviews.present?  %>
+  <strong> Sorry you don't have any reviews yet!</strong>
+   <%else%>
 <% @reviews.each do |r|%>
   <br><br>
-  <%= r.place.name%>
+  <%= r.place.name%> - <%= r.place.category.name%>
   <br><br><br>
   User <%= r.user.name%> - <%= r.description%> 
   <br>
   
 
+  <%end%>
   <%end%>

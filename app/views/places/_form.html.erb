@@ -4,23 +4,26 @@
 
 <%= form_for(@place) do |f|%> 
     <div>
-      <%= f.label :name %>
+      <%= f.label :name %>:
       <%= f.text_field :name %>
-      <%= f.label :description_of_place %>
-      <%= f.text_field :description%>
-      <%= f.label :overall_rating %>
+      <br><br><br>
+      <%= f.label :description_of_place %>:<br>
+      <%= f.text_area :description%>
+      <br><br><br>
+      <%= f.label :overall_rating %>:
       <%= f.number_field :overall_rating,min:0, max:5%>
     </div>
-    
-
-    <div>
-      <%= f.fields_for :category do |c| %>
-        <%= c.label :category_name %>
-        <%= c.select(:name, [ "Restaurant", "Fast food", "Amusement Park", "Store" ]) %>
-      <% end %> 
-    </div> 
-    <br>
-    
-
+    <br><br><br>
+    <%= f.fields_for :category do |t| %>
+      <%= t.label :name, "Your places category" %>:
+      <%= t.text_field :name, list: 'name' %>
+      <datalist id="name">
+        <% Category.all.each do |c| %>
+          <option value="<%= c.name %>"></option>
+        <% end %>
+      </datalist>
+      <br><br><br>
+     
     <%= f.submit  %>  
+  <% end %>
   <% end %>
