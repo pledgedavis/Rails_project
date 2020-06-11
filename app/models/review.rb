@@ -17,6 +17,7 @@ class Review < ApplicationRecord
     # end
 
     validates :place, uniqueness: { scope: :user, message: "has already been reviewed by you"  }
+    scope :ordered_by_name, -> { order(user: :asc) }
 
 
   # def place_attributes

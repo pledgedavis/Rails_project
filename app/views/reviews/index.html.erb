@@ -1,6 +1,12 @@
-  <h1>All the Reviews </h1>
+<!DOCTYPE html>
+<html>
+<head>  
+  <h1>All Reviews </h1>
 <br><br>
-  
+<style>
+</style>
+</head>
+<body>
 <br>
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:Review, "Search for review by category here:") %>    
@@ -17,7 +23,11 @@
   <br><br><br>
   User <%= r.user.name%> - <%= r.description%> 
   <br>
+  <%end%>
+  <%end%>
+  <%= yield %>
+  </body>
+  </html>
   
 
-  <%end%>
-  <%end%>
+  

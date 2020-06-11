@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # root 'sessions#home'
   # get '/users/user_id' => 'users#show'
-  resources :categories 
+  
   get '/' => 'sessions#home' 
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/search' => 'reviews#reviewbycat'
-  resources :reviews
-  resources :places
-  resources :users
+  resources :reviews, only: [:new, :index, :create, :show]
+  resources :places, only: [:new, :index, :create, :update, :show, :edit]
+  resources :categories, only: [:index] 
+  resources :users, only: [:show, :create, :index, :new]
+     
   # resources :sessions
   #omniauth callback
   get '/auth/:provider/callback' => 'sessions#fbcreate'
@@ -23,7 +25,5 @@ Rails.application.routes.draw do
   resources :places do
     resources :reviews, only: [:new, :index, :create]
   end
-  resources :users, only: [:show, :create]
 end
-
 

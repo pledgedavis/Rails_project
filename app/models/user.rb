@@ -10,8 +10,7 @@ class User < ApplicationRecord
     validates :name, :email, presence: true #users name and email vailidations
     validates :name, :email, uniqueness: true
 
-    scope :ordered_by_name, -> { order(user: :asc) }
-
+    
 end
 
 

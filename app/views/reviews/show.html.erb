@@ -1,5 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
 <h1>review show page</h1>
-
-<h1><%= @review.title%>  </h1>
-
+</head>
+<h1><%= @review.title%></h1>
+<body>
 <p><%= @review.content%></p>
+<%= yield %>
+</body>
+</html>
+
+
+

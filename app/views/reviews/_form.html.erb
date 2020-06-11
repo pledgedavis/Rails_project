@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+</style>
+</head>
+<body>
 <%= form_for @review do |u|%>
     <%=u.label :description%>
     <%= u.text_field :description%>
@@ -11,3 +16,6 @@
     <%=u.submit "Submit Review"%>
 <%end%>
 <%= flash[:error] %>
+<%= yield %>
+</body>
+</html>

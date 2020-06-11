@@ -1,7 +1,12 @@
+
+<!DOCTYPE html>
+<html>
+<head>
 <%= render partial: 'layouts/errors', locals: {object: @place}  %>
-
-
-
+<style>
+    </style>
+  </head>
+  <body>
 <%= form_for(@place) do |f|%> 
     <div>
       <%= f.label :name %>:
@@ -27,3 +32,6 @@
     <%= f.submit  %>  
   <% end %>
   <% end %>
+<%= yield %>
+</body>
+</html>

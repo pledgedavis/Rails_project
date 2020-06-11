@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
 <%= render partial: 'layouts/errors', locals: {object: @user}  %>
-
 <h1>Log In </h1>
-
-
+<%= flash[:error] %>
+</head>
+<body>
 <%= form_for @user, url: '/login' do |u|%>
     <%=  u.label :username%>
     <%= u.text_field :name%>
@@ -15,5 +18,10 @@
 
     <%= u.submit "Log In"%>
 <%end%>
+<%= yield %>
+</body>
+</html>
 
-<%= flash[:error] %>
+
+
+

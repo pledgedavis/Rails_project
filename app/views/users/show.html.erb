@@ -1,8 +1,9 @@
-
+<!DOCTYPE html>
+<html>
+<head>
 <h2>Welcome to <%= @user.name%>'s homepage! </h2>
-
-
-
+</head>
+<body>
 <% if !@user.reviewed_places.present?  %>
 <strong>Sorry you don't have any reviews yet!</strong>
    <%else%>
@@ -13,6 +14,8 @@
   <% end %>
 </ul>
 <%end%>
-
+<%= yield %>
+</body>
+</html>
 
 

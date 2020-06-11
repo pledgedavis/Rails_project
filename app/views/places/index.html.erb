@@ -1,6 +1,10 @@
-
-
+  <!DOCTYPE html>
+  <html>
+  <head>
+  
 <h1>All the Places</h1>
+</head>
+<body>
 <% if !@place.present?  %>
 <strong> Sorry no places have been created yet!</strong>
    <%else%>
@@ -10,4 +14,13 @@
  
   <% end %>
   <% end %>
+  <style>
+  </style>
+<%= yield %>
+</body>
+</html>
+
+
+
+
   
