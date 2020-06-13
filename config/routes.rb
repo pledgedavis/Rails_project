@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # root 'sessions#home'
-  # get '/users/user_id' => 'users#show'
   
   get '/' => 'sessions#home' 
   get '/signup' => 'users#new'
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
   #omniauth callback
   get '/auth/:provider/callback' => 'sessions#fbcreate'
   
-  # post '/signup' => 'users#create' 
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.resources :reviews
   resources :places do

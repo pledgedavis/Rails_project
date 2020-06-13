@@ -39,8 +39,6 @@ class SessionsController < ApplicationController
     session.delete(:user_id)
     flash[:notice] = "User logged out"
     redirect_to '/' 
-      #  session.clear
-      # redirect_to '/' 
   end
 
   def auth

@@ -26,16 +26,8 @@ class PlacesController < ApplicationController
   end
  end
 
-  def index 
-    # byebug
-    # binding.pry
-    # @place = Place.all
-    # if params[:category_id]
-    #   category = Category.find(params[:category_id])
-    #   @place = category.place 
-    # else 
+  def index  
       @place = Place.order_by_rating.includes(:category) 
-    # end 
   end
 
   def show
@@ -50,10 +42,6 @@ class PlacesController < ApplicationController
 
   def place_params
       params.require(:place).permit(:name, :description, :overall_rating,  :category_id, category_attributes: [:name])
-      # params.require(:post).permit(:title, ) 
+     
   end
-  # def set_place
-  #     @place = Place.find_by(id: params[:id])
-  #     redirect_to  places_path if !@place 
-  #  end
 end

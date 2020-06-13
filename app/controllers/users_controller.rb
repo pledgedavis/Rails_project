@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   require'pry'
-  # before_action :authorization_required, only: [:new, :create]
   before_action :current_user
-  #loads signup form
  def new
    @user = User.new
  end
@@ -24,14 +22,7 @@ class UsersController < ApplicationController
   redirect_to "/"
  end
 
-#  def show
-# #    byebug
-#    @user = User.find_by(id: params[:id])
-#     # @review = Review.new
-#  end
-
  def show
-  # @user = User.find_by(id: params[:id])
   @user = current_user
  end
 
