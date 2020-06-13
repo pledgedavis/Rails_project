@@ -12,10 +12,4 @@ class Place < ApplicationRecord
 
     accepts_nested_attributes_for :category
 
-
-    # def category_attributes=(hash)
-    #     category = Category.find_or_create_by(name: hash[:name])
-    #     #push it into workout
-    #     self.category = category
-    #   end 
 end
