@@ -48,6 +48,7 @@ class ReviewsController < ApplicationController
  def reviewbycat
   # binding.pry
   @reviews = Review.all
+  # binding.pry
  end
 
   private 

@@ -7,7 +7,8 @@
 </head>
 <body>
 <%= form_for @user, url: '/login' do |u|%>
-    <%=  u.label :username%>
+
+  <br> <%=  u.label :username%> 
     <%= u.text_field :name%>
      
     <%= u.label :email%>
@@ -20,6 +21,16 @@
 <%end%>
 <%= yield %>
 </body>
+ 
+<style>
+
+h1 {
+    color: black;
+    margin-left: 250px; 
+
+    text-decoration: underline;
+</style>
+
 </html>
 
 
