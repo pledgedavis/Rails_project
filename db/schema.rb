@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_123907) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "description"
-    t.string "picture"
-    t.integer "count"
     t.integer "rating"
     t.integer "user_id"
     t.integer "place_id"
@@ -41,7 +39,6 @@ ActiveRecord::Schema.define(version: 2020_06_06_123907) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
