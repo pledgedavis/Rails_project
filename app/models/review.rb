@@ -1,8 +1,8 @@
 class Review < ApplicationRecord
-    require'pry'
+
     belongs_to :user
     belongs_to :place
-
+    validates :rating, :description, presence: true 
     scope :order_by_date, -> {order(:date)}
 
     accepts_nested_attributes_for :place
