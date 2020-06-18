@@ -40,7 +40,7 @@ class PlacesController < ApplicationController
   
   private 
 
-  def set_place 
+  def find_place 
     @place = Place.find_by(id: params[:id])
   end
 

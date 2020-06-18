@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
   private 
 
-  def set_place 
+  def find_place 
     @place = Place.find_by_id(params[:place_id])
   end
 
