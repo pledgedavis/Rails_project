@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   require'pry'
   def new
-       @place = Place.find_by_id(params[:place_id])
+     set_place 
       @review = @place.reviews.build
  end
 
@@ -15,30 +15,26 @@ class ReviewsController < ApplicationController
   end
  end
 
- def show
-    @review = Place.find_by_id(params[:id])
- end
-
  def index
-  # binding.pry
-  if @place = Place.find_by_id(params[:place_id])
+  if set_place 
       @reviews = @place.reviews
   else
-      # binding.pry
       @reviews = Review.all
-     
   end
  end
 
- def reviewbycat
-  # binding.pry
-  @reviews = Review.all
-  # binding.pry
+ def reviewbycat   
+    @reviews = Category.find_by_id(params[:category_id]).reviews
  end
 
   private 
+
+  def set_place 
+    @place = Place.find_by_id(params[:place_id])
+  end
+
  def review_params
-  params.require(:review).permit( :rating, :description, :place_id)
+  params.require(:review).permit( :rating, :description, :place_id, :category_id, category_attributes: [:name])
  end
 end
 

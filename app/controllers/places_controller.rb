@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
   def create
     # binding.pry
     @place = Place.new(place_params) 
-    @place.user_id = session[:user_id] 
+    @place.user_id = current_user.id
    if @place.save 
      redirect_to places_path(@place) 
    else
@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
  end
 
  def update 
-  @place = Place.find_by(id: params[:id])
+  set_place 
   if @place.update(place_params)
       redirect_to places_path
   else
@@ -31,14 +31,18 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find_by(id: params[:id])
+    set_place 
   end
 
   def edit
-    @place = Place.find_by(id: params[:id])
+    set_place 
   end
   
   private 
+
+  def set_place 
+    @place = Place.find_by(id: params[:id])
+  end
 
   def place_params
       params.require(:place).permit(:name, :description, :overall_rating,  :category_id, category_attributes: [:name])
