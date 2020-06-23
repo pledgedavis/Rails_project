@@ -31,9 +31,6 @@ class SessionsController < ApplicationController
  
     redirect_to '/places'
   end
-
-  def home
-  end
   
   def destroy
     session.delete(:user_id)

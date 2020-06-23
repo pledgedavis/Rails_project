@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
  end
 
  def update 
-  set_place 
+  find_place 
   if @place.update(place_params)
       redirect_to places_path
   else
@@ -27,15 +27,15 @@ class PlacesController < ApplicationController
  end
 
   def index  
-      @place = Place.order_by_rating.includes(:category) 
+    @place = Place.order_by_rating.includes(:category) 
   end
 
   def show
-    set_place 
+    find_place 
   end
 
   def edit
-    set_place 
+    find_place 
   end
   
   private 

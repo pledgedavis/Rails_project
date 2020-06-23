@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/search' => 'reviews#reviewbycat'
-  resources :reviews, only: [:new, :index, :create]
+  resources :reviews, only: [:new, :index, :create, :show]
   resources :places, only: [:new, :index, :create, :update, :show, :edit]
   resources :categories, only: [:index] 
   resources :users, only: [:show, :create, :index, :new]

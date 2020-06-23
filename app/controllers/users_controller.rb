@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end     
  end
  
-
  def index
   redirect_to "/"
  end
@@ -28,10 +27,10 @@ class UsersController < ApplicationController
 
  private
 
-  def user_params
+ def user_params
     params.require(:user).permit( :name, :email, :password
     )
-  end
+ end
 end
 
 

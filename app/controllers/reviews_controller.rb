@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   require'pry'
   def new
-     set_place 
+     find_place 
       @review = @place.reviews.build
  end
 
@@ -16,12 +16,16 @@ class ReviewsController < ApplicationController
  end
 
  def index
-  if set_place 
+  if find_place 
       @reviews = @place.reviews
   else
       @reviews = Review.all
   end
  end
+
+ def show 
+  @review = Review.find_by(id: params[:id])
+ end 
 
  def reviewbycat   
     @reviews = Category.find_by_id(params[:category_id]).reviews
