@@ -2,7 +2,8 @@ class ReviewsController < ApplicationController
   require'pry'
   before_action :find_place, only: [:new]
   def new
-      @review = @place.reviews.build
+    # binding.pry
+     @review = @place.reviews.build
   end
 
   def create
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
       @reviews = @place.reviews
   else
       @reviews = Review.all
+     
   end
  end
 

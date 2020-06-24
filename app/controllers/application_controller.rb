@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     include ApplicationHelper
     # before_action :redirect_if_not_logged_in 
     protect_from_forgery with: :exception
-    helper_method :current_user, :logged_in?, :authorized_to_edit?
+    helper_method :current_user, :logged_in?
 
     private 
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
  end
 
- def authorized_to_edit?(p)
-  p.user == current_user
- end  
+#  def authorized_to_edit?(p)
+#   p.user == current_user
+#  end  
 end
