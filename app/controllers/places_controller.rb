@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-
+  before_action :find_place, only: [:update, :show, :edit]
   def new 
     @place = Place.new  
       @place.build_category 
@@ -18,7 +18,6 @@ class PlacesController < ApplicationController
  end
 
  def update 
-  find_place 
   if @place.update(place_params)
       redirect_to places_path
   else
@@ -31,11 +30,9 @@ class PlacesController < ApplicationController
   end
 
   def show
-    find_place 
   end
 
   def edit
-    find_place 
   end
   
   private 
@@ -45,7 +42,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-      params.require(:place).permit(:name, :description, :overall_rating,  :category_id, category_attributes: [:name])
-     
+      params.require(:place).permit(:name, :description, :overall_rating,  :category_id, category_attributes: [:name]) 
   end
 end

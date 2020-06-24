@@ -1,13 +1,15 @@
 <head>
+<% if !@review.present? %>
+    <strong> Sorry no reviews have been created with this id!</strong>
+    <% else %>
 <h1> Review for <%=@review.user.name %> <h1>
 <br>
 </head>
-
 <%= @review.place.name %>
 <br>
 <br>
-
 <%= @review.description %>
+<%end%>
 
 
 

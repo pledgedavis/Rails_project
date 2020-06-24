@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   require'pry'
-  before_action :current_user
+  before_action :current_user 
  def new
    @user = User.new
  end

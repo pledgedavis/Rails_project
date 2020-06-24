@@ -1,11 +1,11 @@
 class ReviewsController < ApplicationController
   require'pry'
+  before_action :find_place, only: [:new]
   def new
-     find_place 
       @review = @place.reviews.build
- end
+  end
 
- def create
+  def create
     @review = current_user.reviews.build(review_params)
   if @review.save
       redirect_to reviews_path(@review)

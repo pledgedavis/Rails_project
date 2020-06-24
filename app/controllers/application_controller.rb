@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
     # before_action :redirect_if_not_logged_in 
     protect_from_forgery with: :exception
     helper_method :current_user, :logged_in?, :authorized_to_edit?
-    
+
     private 
 
  def logged_in?
-  !!session[:user_id]
+   !!session[:user_id]
+#       redirect_to 
+    # redirect_to login_path unless session[:user_id]
  end
 
  def current_user
