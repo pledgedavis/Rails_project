@@ -30,7 +30,9 @@ class ReviewsController < ApplicationController
  end 
 
  def reviewbycat   
-    @reviews = Category.find_by_id(params[:category_id]).reviews
+  # binding.pry
+    @category = Category.find_by_id(params[:category_id])
+    # @reviews = Review.find_by_id(params[:id])
  end
 
   private 

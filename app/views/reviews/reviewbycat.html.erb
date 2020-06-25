@@ -1,12 +1,12 @@
   <head>
-    <% @reviews.each do |r|%>
-   <h1><%= r.user.name%>'s Reviews for the <%= r.place.category.name%> category</h1>
+    <% @category.places.each do |p|%>
+   <h1><%= p.user.name%>'s Reviews for the <%= p.category.name%> category</h1>
     <br><br>
     </head>
     <body>
-    <%= r.place.name%> - <%= r.place.category.name%>
+    <%= p.name%> - <%= p.category.name%>
     <br><br><br>
-    User <%= r.user.name%> - <%= r.description%> 
+    User <%= p.user.name%> - <%= p.description%> 
     <br>
     <%end%>
     <%= yield %>

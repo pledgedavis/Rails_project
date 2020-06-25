@@ -22,7 +22,8 @@ class UsersController < ApplicationController
  end
 
  def show
-  @user = current_user
+  # binding.pry
+  @user = User.find_by_id(session[:user_id])
  end
 
  private

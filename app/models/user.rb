@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-    has_many :places
+    has_many :places 
     has_many :reviews
-    has_many :reviewed_places, through: :reviews, source: :place
+    # has_many :reviewed_places, through: :reviews, source: :place
     has_many :places, through: :reviews  
 
     
