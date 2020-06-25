@@ -7,12 +7,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.build(review_params)
+    # binding.pry
+    @review = Review.new(review_params)
+         @review.user_id = current_user
   if @review.save
       redirect_to reviews_path(@review)
   else
       flash[:error] = "Place has to exist to have a review! "
-      redirect_to places_path
+      render :new 
   end
  end
 
@@ -31,7 +33,9 @@ class ReviewsController < ApplicationController
 
  def reviewbycat   
   # binding.pry
-    @category = Category.find_by_id(params[:category_id])
+  @category_name = Category.find_by(id: params[:category_id])
+
+    @category = Category.find_by(params[:name])
     # @reviews = Review.find_by_id(params[:id])
  end
 

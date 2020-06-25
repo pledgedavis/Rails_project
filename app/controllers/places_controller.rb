@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
   def create
     # binding.pry
     @place = Place.new(place_params) 
-    @place.user_id = current_user.id
+    @place.user_id = current_user
    if @place.save 
      redirect_to places_path(@place) 
    else
@@ -26,7 +26,9 @@ class PlacesController < ApplicationController
  end
 
   def index  
-    @place = Place.order_by_rating.includes(:category) 
+    @place = Place.order_by_rating.includes(:category)
+    # binding.pry
+    # @place = Place.all 
   end
 
   def show
